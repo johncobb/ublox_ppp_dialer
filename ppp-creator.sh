@@ -66,6 +66,7 @@ lock
 modem
 dump
 nodetach
+persist
 # Hardware flow control
 #nocrtscts
 #remotename 3gppp
