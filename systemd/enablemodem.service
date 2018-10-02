@@ -1,0 +1,20 @@
+[Unit]
+
+Description=Ublox Service
+
+After=network.target
+
+[Service]
+
+Type=simple
+#Type=forking
+#PIDFile=/var/run/ublox.pid
+
+WorkingDirectory=/home/pi/ublox/
+ExecStart=/usr/bin/python /home/pi/ublox/enablemodem.py
+KillMode=process
+#RemainAfterExit=true
+
+[Install]
+
+WantedBy=multi-user.target
