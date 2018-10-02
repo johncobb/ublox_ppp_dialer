@@ -47,14 +47,12 @@ sudo poff gprs# kill hspa-kore script
 ```
 sudo route add default dev ppp0
 ```
-<b>enablemodem.py</b>
+<b>enable.py</b>
 
-Script used to enable the modem hardware and start (pon) the PPP dialer. This establishes
-a PPP connection to the cellular provider allowing application level TCP
-access without the complexities of interfacing with the modem. 
+Script used to enable the modem hardware.
 
 Example:
 ```python
-sudo python enablemodem.py -p hspa-kore
+sudo python enable.py
 ```
 
