@@ -7,7 +7,7 @@ echo "creating directories"
 mkdir -p /etc/chatscripts
 mkdir -p /etc/ppp/peers
 
-echo "creating script file : /etc/chatscripts/quectel-chat-connect"
+echo "creating script file : /etc/chatscripts/ublox-chat-connect"
 echo "
 ABORT \"BUSY\"
 ABORT \"NO CARRIER\"
@@ -17,10 +17,12 @@ ABORT \"NO ANSWER\"
 TIMEOUT 30
 \"\" AT
 OK ATE0
-OK ATI;+CSUB;+CSQ;+COPS?;+CGREG?;&D2
+#OK ATI;+CSUB;+CSQ;+COPS?;+CGREG?;&D2
+#OK ATI;+CSQ;+COPS?;+CGREG?;&D2
 # Insert the APN provided by your network operator, default apn is $1
 OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
-OK ATD*99#
+OK ATD*99***1#
+
 CONNECT" > /etc/chatscripts/ublox-chat-connect
 
 
@@ -39,9 +41,9 @@ echo "creating script file : /etc/ppp/peers/gprs"
 echo "
 /dev/$2 115200
 # The chat script, customize your APN in this file
-connect 'chat -s -v -f /etc/chatscripts/quectel-chat-connect -T $1'
+connect 'chat -s -v -f /etc/chatscripts/ublox-chat-connect -T $1'
 # The close script
-disconnect 'chat -s -v -f /etc/chatscripts/quectel-chat-disconnect'
+disconnect 'chat -s -v -f /etc/chatscripts/ublox-chat-disconnect'
 # Hide password in debug messages
 hide-password
 # The phone is not required to authenticate
@@ -51,11 +53,11 @@ debug
 # If you want to use the HSDPA link as your gateway
 defaultroute
 # pppd must not propose any IP address to the peer
-noipdefault
+#noipdefault
 # No ppp compression
-novj
-novjccomp
-noccp
+#novj
+#novjccomp
+#noccp
 ipcp-accept-local
 ipcp-accept-remote
 local
@@ -66,9 +68,9 @@ dump
 nodetach
 # Hardware flow control
 #nocrtscts
-remotename 3gppp
-ipparam 3gppp
-ipcp-max-failure 30
+#remotename 3gppp
+#ipparam 3gppp
+#ipcp-max-failure 30
 # Ask the peer for up to 2 DNS server addresses
 usepeerdns" > /etc/ppp/peers/gprs
 
