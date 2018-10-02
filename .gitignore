@@ -7,7 +7,6 @@
 .metadata
 .gradle
 env/
-bin/
 tmp/
 target/
 *.tmp
