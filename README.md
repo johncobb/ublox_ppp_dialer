@@ -2,10 +2,9 @@
 <h2>Modem Scripts:</h2>
 <b>enablehardware.py</b>
 
-Scripts used to enable and crontrol the Janus-RC modem.
-Running this command will powerup the onboard Janus-RC (Telit Modem)
-It does not enumerate the serial port for commands.
-This allows you to test the PPP dialer using pon and poff commands to establish
+Scripts used to enable and crontrol the Ublox LARA-R203 modem.
+Running this command will powerup the onboard modem
+This allows testing of the PPP dialer using pon and poff commands to establish
 a PPP session.
 
 Provisioning Steps:
@@ -30,16 +29,20 @@ tail -f /var/log/ppp/log
 
 2nd Terminal (Enalbe Hardware)
 ```
-cd ~/apps/modemscripts
-sudo python enablehardware.py
+cd ~/ublox_ppp_dialer
+chmod +x ./ppp-creator.sh
+sudo ./ppp-creator.sh your-apn-name ttyAMA0
 ```
 
 3rd Terminal (PPP Dialer)
 ```
-sudo pon hspa-kore # launch hspa-kore script
-sudo poff hspa-kore # kill hspa-kore script
+sudo pon gprs # launch hspa-kore script
+or
+sudo pon gprs # launch hspa-kore script&;
+
+sudo poff gprs# kill hspa-kore script
 ```
-4th Add route so we can ssh through the ppp0 connection
+4th (Optional)n Add route so we can ssh through the ppp0 connection
 (This can be added to /etc/ppp/ip-up.d/addroute)
 ```
 sudo route add default dev ppp0
