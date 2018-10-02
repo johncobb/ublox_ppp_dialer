@@ -53,6 +53,6 @@ Script used to enable the modem hardware.
 
 Example:
 ```python
-sudo python enable.py
+sudo python ublox_lara_r2/enable.py
 ```
 

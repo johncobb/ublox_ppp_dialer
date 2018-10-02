@@ -34,10 +34,10 @@ class UbloxLaraR2():
         GPIO.output(UbloxGpioMap.GPIO_POWERPIN, False)
 
     def enable_rtscts(self):
-        os.system("../bin/rpirtscts on")
+        os.system("bin/rpirtscts on")
 
     def disable_rtscts(self):
-        os.system("../bin/rpirtscts off")
+        os.system("bin/rpirtscts off")
 
     def reset_power(self):
         self.debug = False

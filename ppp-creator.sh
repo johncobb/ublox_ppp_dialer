@@ -21,6 +21,7 @@ OK ATE0
 #OK ATI;+CSQ;+COPS?;+CGREG?;&D2
 # Insert the APN provided by your network operator, default apn is $1
 OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
+#
 OK ATD*99***1#
 
 CONNECT" > /etc/chatscripts/ublox-chat-connect

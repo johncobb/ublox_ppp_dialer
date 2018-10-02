@@ -9,6 +9,7 @@
 env/
 tmp/
 target/
+.pyc
 *.tmp
 *.bak
 *.swp
