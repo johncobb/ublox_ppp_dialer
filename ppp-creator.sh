@@ -19,6 +19,7 @@ TIMEOUT 30
 OK ATE0
 #OK ATI;+CSUB;+CSQ;+COPS?;+CGREG?;&D2
 # Insert the APN provided by your network operator, default apn is $1
+#OK AT&D0
 #OK AT+CFUN=4
 #OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
 #OK AT+CFUN=1
@@ -68,6 +69,7 @@ dump
 nodetach
 # Hardware flow control
 nocrtscts
+persist
 remotename 3gppp
 ipparam 3gppp
 ipcp-max-failure 30
