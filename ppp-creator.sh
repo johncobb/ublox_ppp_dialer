@@ -18,17 +18,11 @@ TIMEOUT 30
 \"\" AT
 OK ATE0
 #OK ATI;+CSUB;+CSQ;+COPS?;+CGREG?;&D2
-OK ATI;+CSQ;+COPS?;+CGREG?;&D2
-OK AT+CFUN=4
-#OK AT+URAT=7,7,7
-OK AT+CMEE=2
-#
 # Insert the APN provided by your network operator, default apn is $1
-OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
-OK AT+CFUN=1
-#OK AT+CGDATA=\"PPP\",1
-OK ATD*99***1#
-#
+#OK AT+CFUN=4
+#OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
+#OK AT+CFUN=1
+OK ATD*99#
 CONNECT" > /etc/chatscripts/ublox-chat-connect
 
 
@@ -59,11 +53,11 @@ debug
 # If you want to use the HSDPA link as your gateway
 defaultroute
 # pppd must not propose any IP address to the peer
-#noipdefault
+noipdefault
 # No ppp compression
-#novj
-#novjccomp
-#noccp
+novj
+novjccomp
+noccp
 ipcp-accept-local
 ipcp-accept-remote
 local
@@ -72,12 +66,11 @@ lock
 modem
 dump
 nodetach
-persist
 # Hardware flow control
-crtscts
-#remotename 3gppp
-#ipparam 3gppp
-#ipcp-max-failure 30
+nocrtscts
+remotename 3gppp
+ipparam 3gppp
+ipcp-max-failure 30
 # Ask the peer for up to 2 DNS server addresses
 usepeerdns" > /etc/ppp/peers/gprs
 
