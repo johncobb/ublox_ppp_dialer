@@ -1,6 +1,6 @@
 
 <h2>Modem Scripts:</h2>
-<b>enablehardware.py</b>
+<b>the gist</b>
 
 Scripts used to enable and crontrol the Ublox LARA-R203 modem.
 Running this command will powerup the onboard modem
