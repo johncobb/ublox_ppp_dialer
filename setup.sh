@@ -76,4 +76,10 @@ ipcp-max-failure 30
 # Ask the peer for up to 2 DNS server addresses
 usepeerdns" > /etc/ppp/peers/gprs
 
+
+sudo cp enablemodem.service /etc/systemd/system/enablemodem.service
+
+systemctl enable enablemodem.service
+systemctl start enablemodem.service
+systemctl daemon-reload
 echo "\n\nUse \"sudo pppd call gprs\" command and Surf"

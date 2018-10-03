@@ -1,0 +1,21 @@
+
+[Unit]
+
+Description=Ublox Modem Service
+
+After=network.target
+
+[Service]
+
+Type=simple
+#Type=forking
+#PIDFile=/var/run/ublox-modem-service.pid
+
+WorkingDirectory=/home/pi/ublox_ppp_dialer/ublox_lara_r2/
+ExecStart=/usr/bin/python /home/pi/ublox_ppp_dialer/ublox_lara_r2/enable.py
+KillMode=process
+#RemainAfterExit=true
+
+[Install]
+
+WantedBy=multi-user.target

@@ -56,3 +56,26 @@ Example:
 sudo python ublox_lara_r2/enable.py
 ```
 
+<b>systemd</b>
+
+Commands used to setup systemd service
+Example:
+```python
+sudo python ublox_lara_r2/enable.py
+
+# setting up service
+systemctl enable enablemodem.service
+systemctl start enablemodem.service
+systemctl daemon-reload
+
+# disabling service
+sudo systemctl disable enablemodem.service
+
+# checking status
+sudo systemctl status enablemodem.service
+sudo systemctl is-active enablemodem.service
+sudo systemctl is-enabled enablemodem.service
+sudo systemctl is-failed enablemodem.service
+sudo systemctl disable enablemodem.service
+
+```
