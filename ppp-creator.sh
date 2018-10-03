@@ -18,12 +18,17 @@ TIMEOUT 30
 \"\" AT
 OK ATE0
 #OK ATI;+CSUB;+CSQ;+COPS?;+CGREG?;&D2
-#OK ATI;+CSQ;+COPS?;+CGREG?;&D2
+OK ATI;+CSQ;+COPS?;+CGREG?;&D2
+OK AT+CFUN=4
+#OK AT+URAT=7,7,7
+OK AT+CMEE=2
+#
 # Insert the APN provided by your network operator, default apn is $1
 OK AT+CGDCONT=1,\"IP\",\"\\T\",,0,0
-#
+OK AT+CFUN=1
+#OK AT+CGDATA=\"PPP\",1
 OK ATD*99***1#
-
+#
 CONNECT" > /etc/chatscripts/ublox-chat-connect
 
 
@@ -69,7 +74,7 @@ dump
 nodetach
 persist
 # Hardware flow control
-#nocrtscts
+crtscts
 #remotename 3gppp
 #ipparam 3gppp
 #ipcp-max-failure 30
