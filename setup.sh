@@ -7,6 +7,8 @@ echo "creating directories"
 mkdir -p /etc/chatscripts
 mkdir -p /etc/ppp/peers
 
+pip install pyserial
+pip install RPi.GPIO
 echo "creating script file : /etc/chatscripts/ublox-chat-connect"
 echo "
 ABORT \"BUSY\"
@@ -77,6 +79,8 @@ ipcp-max-failure 30
 usepeerdns" > /etc/ppp/peers/gprs
 
 
+echo 'dtoverlay=pi3-disable-bt' > /boot/config.txt
+sed -i 's/console=serial0,115200//g' /boot/cmdline.txt
 sudo cp enablemodem.service /etc/systemd/system/enablemodem.service
 
 systemctl enable enablemodem.service
