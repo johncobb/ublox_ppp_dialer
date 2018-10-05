@@ -3,12 +3,13 @@
 echo "install ppp"
 apt-get install ppp
 
+
 echo "creating directories"
 mkdir -p /etc/chatscripts
 mkdir -p /etc/ppp/peers
 
-pip install pyserial
-pip install RPi.GPIO
+pip install -r requirements.txt 
+
 echo "creating script file : /etc/chatscripts/ublox-chat-connect"
 echo "
 ABORT \"BUSY\"
