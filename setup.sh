@@ -80,7 +80,7 @@ ipcp-max-failure 30
 usepeerdns" > /etc/ppp/peers/gprs
 
 
-echo 'dtoverlay=pi3-disable-bt' > /boot/config.txt
+echo 'dtoverlay=pi3-disable-bt' >> /boot/config.txt
 sed -i 's/console=serial0,115200//g' /boot/cmdline.txt
 sudo cp enablemodem.service /etc/systemd/system/enablemodem.service
 
