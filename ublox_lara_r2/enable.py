@@ -1,8 +1,11 @@
+import os
 from lib_module_lara_r2 import *
 
 u = UbloxLaraR2()
 u.initialize()
 u.reset_power()
+os.system("pon gprs")
+
 
 # # Close debug massage 
 # u.debug = True
