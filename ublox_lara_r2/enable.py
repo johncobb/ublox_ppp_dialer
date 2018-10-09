@@ -1,10 +1,19 @@
 import os
 from lib_module_lara_r2 import *
 
-u = UbloxLaraR2()
-u.initialize()
-u.reset_power()
-os.system("pon gprs")
+def enable_hardware():
+    u = UbloxLaraR2()
+    u.initialize()
+    u.reset_power()
+
+def auto_pon():
+    os.system("pon gprs")
+
+if __name__ == "__main__":
+
+    enable_hardware()
+    auto_pon()
+
 
 
 # # Close debug massage 
