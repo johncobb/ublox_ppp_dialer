@@ -3,12 +3,11 @@
 echo "install ppp"
 apt-get install ppp
 
-
-echo "creating directories"
+echo "creating folders"
 mkdir -p /etc/chatscripts
 mkdir -p /etc/ppp/peers
 
-pip install -r requirements.txt 
+pip install -r requirements.txt
 
 echo "creating script file : /etc/chatscripts/ublox-chat-connect"
 echo "
@@ -52,8 +51,6 @@ disconnect 'chat -s -v -f /etc/chatscripts/ublox-chat-disconnect'
 hide-password
 # The phone is not required to authenticate
 noauth
-# Debug info from pppd
-debug
 # If you want to use the HSDPA link as your gateway
 defaultroute
 # pppd must not propose any IP address to the peer
@@ -83,6 +80,7 @@ usepeerdns" > /etc/ppp/peers/gprs
 echo 'dtoverlay=pi3-disable-bt' >> /boot/config.txt
 sed -i 's/console=serial0,115200//g' /boot/cmdline.txt
 sudo cp enablemodem.service /etc/systemd/system/enablemodem.service
+sudo touch /boot/1stboot.txt
 
 systemctl enable enablemodem.service
 systemctl start enablemodem.service

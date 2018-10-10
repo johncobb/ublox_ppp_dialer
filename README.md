@@ -29,7 +29,7 @@ Login to the pi on three separate terminals
 
 1st Terminal (Logging):
 ```
-tail -f /var/log/ppp/log
+tail -f /var/log/ppp.log
 ```
 
 2nd Terminal (Enalbe Hardware)
